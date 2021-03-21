@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<link href="stylesheet.css" rel="stylesheet"><html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <title>Крутое пике</title>		
+  </head>
+	<body>
+		<div class="mysite">
+			<div class="header"><h1>Крутое пике</h1></div>
+			<div class="content">
+				<div class="row_about">
+					<div class="title_card">
+						<h2>О сериале</h2>
+						<img src="img/logo.png" height=200px alt="Крутое пике" /><br>
+						Пассажирский самолёт «Бройлер-747» терпит крушение над водами Атлантического океана. Экипаж лайнера отважно борется за спасение жизней пассажиров.
+					</div>					
+				</div>
+				<div class="row_heroes">
+					<div class="title_card">
+						<h2>Действующие лица</h2>
+					</div>
+					<div class="hero_card">
+						<img src="img/hero01.jpg" height=100px alt="Командор" /><br>
+						Неунывающий и мужественный Командор 
+					</div>
+					<div class="hero_card">
+						<img src="img/hero02.jpg" height=100px alt="Дринкинс" /><br>
+						Изобретательный и находчивый второй пилот Дринкинс 
+					</div>
+					<div class="hero_card">
+						<img src="img/hero03.png" height=100px alt="Cтюардесса" /><br>
+						Симпатичная и невозмутимая стюардесса 
+					</div>	
+					<div class="hero_card">
+						<img src="img/hero04.png" height=100px alt="Морзе" /><br>
+						Хладнокровный и обаятельный радист Морзе 
+					</div>
+					<div class="hero_card">
+						<img src="img/hero05.png" height=100px alt="Мисс Бурпл" /><br>
+						А также несравненная Мисс Мурпл в роли Мисс Бурпл 
+					</div>		
+				</div>
+				<div class="row_other">
+					<div class="title_card">
+						<h2>Опросы и ссылки</h2>
+					</div>
+					<div class="info_card">
+						<div class="title_card">
+							<h3>Ваш любимый персонаж?</h3>
+						</div>						
+						<form method="post" action="http://localhost/inp/radio" id="choose your hero">
+						<!-- Здесь React вставляет выбор героев -->	
+						</form>						
+					</div>
+					<div class="info_card">
+						<div class="title_card">
+							<h3>Подробнее на сайтах:</h3>
+						</div>						
+						<ul>
+							<li><a href="https://ru.wikipedia.org/wiki/Каламбур_(тележурнал)" target="_blank">Википедия</a><br></li>
+							<li><a href="https://lurkmore.to/Каламбур" target="_blank">Lurkmore</a></li>
+						</ul>						
+					</div>
+					<div class="info_card" id="meme_card">
+						<div class="title_card">
+							<h3>Мем от нашего спонсора</h3>
+							<input type="button" id="btn" value="Новый мем" /><br><br>
+						</div>
+																	
+						<div class="title_card" id="meme_shelter">
+							<script>      
+								window.onload = function() {
+								  getMeme('https://meme-api.herokuapp.com/gimme');
+								};
+								document.getElementById('btn').onclick = function() {
+								  var image_x = document.getElementById('meme');
+								  image_x.parentNode.removeChild(image_x);
+								  getMeme('https://meme-api.herokuapp.com/gimme');
+								  }          
+							</script>							
+						</div>									
+					</div>				
+				</div>
+			</div>
+			<div class="footer">© Dmitry Petruk for Digital Design, 2021<br>All Rights Reserved</div>
+		</div>
+		<script type="text/javascript" src="js/scripts.js"></script>
+		<script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+		<script type="text/babel">
+			class App extends React.Component {
+				constructor(props) {
+					super(props);
+					this.state = {value: ''};
+				}
+				
+				handleChange = (event) => {
+					console.log(event.target);
+					this.setState({value: event.target.value}, () => {
+						console.log(this.state.value);
+					})
+				}
+
+				handleSubmit = (event) => {
+					alert("Выбран(а) " + this.state.value + ". Отличный выбор!");
+					event.preventDefault();
+				}
+
+				render() {
+					return (					  
+						<div className="radio-buttons">
+							<p>
+								<input type="radio" value="Командор" name="crew" onChange={this.handleChange} /> Командор
+							</p>
+							<p>
+								<input type="radio" value="Дринкинс" name="crew" onChange={this.handleChange}/> Дринкинс
+							</p>
+							<p>
+								<input type="radio" value="Стюардесса" name="crew" onChange={this.handleChange}/> Стюардесса
+							</p>
+							<p>
+								<input type="radio" value="Морзе" name="crew" onChange={this.handleChange}/> Морзе
+							</p>					
+							<p>
+								<input type="radio" value="Мисс Бурпл" name="crew" onChange={this.handleChange}/> Мисс Бурпл
+							</p>						
+							<input type="submit" value="Голосовать" onClick={this.handleSubmit}/>							
+						</div>
+					);
+				}
+			}
+
+			ReactDOM.render(<App />, document.getElementById("choose your hero"));			
+		</script>
+	</body>
+</html>

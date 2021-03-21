@@ -1,0 +1,118 @@
+html,body{
+    height: 100%; /*растягиваем на всю страницу по высоте*/
+    font-family: Cascadia Code, Calibri, Arial;
+    color: black;
+    background-color: #7fa094;
+  }
+
+.mysite{
+    display: flex; /* включаем режим Flexbox */
+    flex-direction: column; /* дочерние элементы будут располагаться сверху вниз */
+    text-align: center;
+    align-items: center;
+    /*padding: 0px 40px; /*отступы по бокам*/
+    margin: -8px; /*убираем белые полосы по краям*/
+}
+.header{
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+.footer{
+    position: relative;    
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 90%;					
+}	
+.content{
+    display: flex; /* включаем режим Flexbox */
+    flex-direction: column; /* дочерние элементы будут располагаться сверху вниз */
+    padding: 10px 25px 0px 10px; /*внутренние отступы*/ 
+    background-color: #badbcf;
+    height: 100%; /*растягиваем на всю страницу по высоте*/
+    flex-wrap: wrap;
+    border-radius: 25px;
+}
+.row_about{
+    /*flex: 1; /*столбцы будут иметь одинаковый размер при изменении разрешения */
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    /*flex-shrink: 2;*/
+    width: 100%;
+    height: fit-content;
+    border: 2px #7fa094 solid;
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px; /*внутренние отступы в-пр-н-л*/
+    margin: 0px 10px 10px 0px; /*внешние отступы*//* top | right | bottom | left */
+    align-items: center;
+}
+
+.row_heroes{
+    /*flex: 1; /*столбцы будут иметь одинаковый размер при изменении разрешения */
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    /*flex-grow: 3;*/
+    width: 100%;
+    height: fit-content;
+    border: 2px #7fa094 solid;
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px; /*внутренние отступы в-пр-н-л*/
+    margin: 0px 10px 10px 0px; /*внешние отступы*/
+    align-items: center;
+}
+
+.row_other{
+    /*flex: 1; /*столбцы будут иметь одинаковый размер при изменении разрешения */
+    display: flex;
+    flex-flow: row wrap;
+    flex-direction: row;
+    /*flex-grow: 3;*/
+    /*align-items: stretch;*/
+    width: 100%;
+    height: fit-content;
+    border: 2px #7fa094 solid;
+    border-radius: 20px;
+    padding: 5px 5px 5px 5px; /*внутренние отступы в-пр-н-л*/
+    margin: 0px 10px 10px 0px; /*внешние отступы*/
+    align-items: center;
+}
+
+.title_card{
+    width: 100%;
+    text-align: center;
+}
+
+.hero_card{
+    flex: auto;
+    width: 230px;
+    height: 165px;  
+    border-radius: 15px;
+    background-color: rgb(63, 117, 119);    
+    padding: 10px 10px 0px 10px; /*внутренние отступы в-пр-н-л*/
+    color: rgb(224, 224, 224);
+    margin: 5px 5px 5px 5px; /*внешние отступы*/
+}
+
+.info_card{
+    width: 300px;
+    height: 500px;
+    flex: auto;
+    border-radius: 15px;
+    background-color: rgb(63, 117, 119);    
+    padding: 5px 10px 0px 10px; /*внутренние отступы в-пр-н-л*/
+    color: rgb(224, 224, 224);
+    margin: 5px 5px 5px 5px; /*внешние отступы*/
+    text-align: left;
+}
+
+img {
+    border-radius: 15px;
+  }
+
+a {
+color: whitesmoke;
+}
